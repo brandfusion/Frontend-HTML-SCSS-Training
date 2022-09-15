@@ -1,0 +1,66 @@
+body {
+  // --body-bg: red;
+  // background: var(--body-bg);
+  --gutter: var(--size-4);
+  --brand: hsl(217deg 82% 15%);
+  --brand-hover: hsl(217deg 82% 45%);
+}
+.header {
+  &__upper {
+    background-color: var(--gray-1);
+    padding-block: var(--size-2);
+    font-size: var(--font-size-0);
+    label {
+      margin-right: var(--size-2);
+    }
+    select {
+      background: var(--gray-0);
+      border-radius: 0;
+      border-color: var(--gray-3);
+      border-width: 1px;
+    }
+  }
+  &__middle {
+    padding-block: var(--gutter);
+    .content {
+      display: grid;
+      align-items: center;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--gutter);
+    }
+    nav {
+      display: grid;
+      align-items: center;
+      grid-auto-flow: column;
+      gap: var(--gutter);
+    }
+    .search {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      input {
+        background-color: var(--gray-1);
+      }
+    }
+  }
+  &__lower {
+    background-color: var(--brand);
+    padding-block: var(--size-2);
+    a {
+      color: var(--gray-0);
+      &:hover {
+        color: var(--brand-hover);
+      }
+    }
+    ul {
+      list-style-type: none;
+      display: grid;
+      align-items: center;
+      grid-auto-flow: column;
+      width: max-content;
+      gap: var(--gutter);
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

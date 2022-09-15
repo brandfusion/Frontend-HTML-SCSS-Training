@@ -1,0 +1,16 @@
+@use "sass:map"
+@use "variables" as *
+
+=above-breakpoint($breakpoint)
+  @media (min-width: map.get($BREAKPOINTS, $breakpoint))
+    @content
+
+=placeholder
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
