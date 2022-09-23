@@ -402,3 +402,26 @@ body {
   // text-decoration: none;
   color: var(--gray-9) !important;
 }
+
+.modal-display-opacity {
+  display: block !important;
+  opacity: 0;
+}
+
+.modal-display {
+  display: block !important;
+  // opacity: 0;
+}
+
+.modal-fadein {
+  animation: var(--animation-fade-in) forwards;
+}
+
+.modal-slidein {
+  animation: var(--animation-fade-in) forwards;
+  animation: var(--animation-slide-in-left) forwards;
+}
+
+// .modal-fadeout {
+//   animation: var(--animation-fade-out) backwards;
+// }
