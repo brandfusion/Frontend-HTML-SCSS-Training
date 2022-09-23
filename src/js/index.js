@@ -1,5 +1,7 @@
 import "../sass/index.sass";
 
+import {sleep,animateCSS} from "./utilities/index.js";
+
 const x = 0;
 const addTwo = v => v + 2;
 
@@ -15,7 +17,7 @@ const modalOpenTriggers = document.querySelectorAll(`[data-role="modal"]`);
 modalOpenTriggers.forEach(el => el.addEventListener(`click`, e => {
     const el = e.currentTarget;
     const dataSet = el.dataset;
-    let { target, status } = e.currentTarget.dataset;
+    const { target, status } = e.currentTarget.dataset;
     const modalTarget = document.querySelector(`#${target}`);
     if (status === `closed`) {
         // modalTarget.style.display = "block";
@@ -27,36 +29,33 @@ modalOpenTriggers.forEach(el => el.addEventListener(`click`, e => {
         modalTarget.classList.remove(`modal-display-opacity`);
         modalTarget.classList.remove(`modal-fadein`);
     }
-}))
+}));
 
 
 // Cart Modal
 const overlay = document.querySelector(`.overlay`);
-const cartModal = document.querySelector(`#cart-modal`);
-document.addEventListener(`click`, function (event) {
-    if (event.target.closest(`.cart-button`)) {
-        this.body.style.overflow = `hidden`;
-        // cartModal.style.display = "block";
-        cartModal.classList.add(`modal-display`);
-        cartModal.classList.add(`modal-slidein`);
-        overlay.style.display = `flex`;
-    }
-    else if (event.target.closest(`.close-modal`)) {
-        this.body.style.overflow = `auto`;
-        // cartModal.style.display = "none";
-        cartModal.classList.remove(`modal-display`);
-        cartModal.classList.remove(`modal-slidein`);
-        overlay.style.display = `none`;
+
+document.addEventListener(`click`, (event) => {
+    const cartModal = document.querySelector(`#cart-modal`);
+    if (event.target.closest(`.close-modal`)) {
+        document.querySelector("body").style.overflow = `auto`;
+        // cartModal.style.display = "none";    
+        cartModal.classList.add("modal-slideout");
+        sleep(500).then(a =>{
+            overlay.style.display = `none`;
+            cartModal.classList.remove("modal-display","modal-slidein","modal-slideout");
+        });    
+       
 
     }
     else if (cartModal.classList.contains("modal-display") && !event.target.closest(`#cart-modal`)) {
-        this.body.style.overflow = `auto`;
+        document.querySelector("body").style.overflow = `auto`;
         cartModal.classList.remove(`modal-display`);
         cartModal.classList.remove(`modal-slidein`);
         overlay.style.display = `none`;
     }
 
-})
+});
 
 // LOGIN Modal
 
@@ -77,4 +76,16 @@ document.addEventListener(`click`, function (event) {
         overlay.style.display = `none`;
     }
 
-})
+});
+
+
+// minicart trigger
+document.querySelector(".cart-button").addEventListener("click", e=>{
+    // const target = document.getElementById("header");
+    document.getElementById("cart-modal").style.display = "block";
+    animateCSS("#cart-modal", "fadeInRight").then((message) => {
+        // Do something after the animation
+        // alert("worked");
+      });
+    
+});

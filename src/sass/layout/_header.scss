@@ -14,11 +14,11 @@ body {
   }
 
   h1 {
-    color: var(--gray-9)
+    color: var(--gray-9);
   }
 
   h3 {
-    color: var(--gray-9)
+    color: var(--gray-9);
   }
 
   .header-sticky {
@@ -29,9 +29,7 @@ body {
 }
 
 .header {
-
-
-  @media screen and (min-width:1024px) {
+  @media screen and (min-width: 1024px) {
     &__upper {
       display: block !important;
       background-color: var(--gray-1);
@@ -87,7 +85,7 @@ body {
       display: none;
     }
 
-    @media screen and (min-width:1024px) {
+    @media screen and (min-width: 1024px) {
       .btn {
         display: none;
       }
@@ -97,7 +95,7 @@ body {
       display: none !important;
     }
 
-    @media screen and (max-width:1023px) {
+    @media screen and (max-width: 1023px) {
       .logo {
         grid-area: 1/1/2/2;
       }
@@ -166,7 +164,6 @@ body {
     }
   }
 
-
   &__lower {
     display: none;
   }
@@ -224,13 +221,13 @@ body {
   font-size: var(--font-size-4);
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   #cart-modal {
     width: 40%;
   }
 }
 
-@media screen and (max-width:1023px) {
+@media screen and (max-width: 1023px) {
   #cart-modal {
     width: 70%;
   }
@@ -238,11 +235,15 @@ body {
 
 #cart-modal {
   display: none;
-  position: absolute;
+  position: fixed;
   background: var(--gray-0);
   height: 100vh;
   right: 0;
   top: 0;
+  bottom: 0;
+  overflow: auto;
+  // animation: all 0.5s ease-in-out;
+  //transform: translateX(100%);
 }
 
 .cart-button {
@@ -301,13 +302,13 @@ body {
   height: 23px;
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1024px) {
   .login {
     width: 40%;
   }
 }
 
-@media screen and (max-width:1023px) {
+@media screen and (max-width: 1023px) {
   .login {
     width: 90%;
   }
@@ -330,7 +331,6 @@ body {
   padding: 3em 2em;
   background: var(--gray-0);
   display: none;
-
 }
 
 .login-modal-header {
@@ -410,6 +410,7 @@ body {
 
 .modal-display {
   display: block !important;
+  transform: translateX(0) !important;
   // opacity: 0;
 }
 
@@ -418,10 +419,13 @@ body {
 }
 
 .modal-slidein {
-  animation: var(--animation-fade-in) forwards;
+  // animation: var(--animation-fade-in) forwards;
   animation: var(--animation-slide-in-left) forwards;
 }
-
+.modal-slideout {
+  // animation: var(--animation-fade-in) forwards;
+  animation: var(--animation-slide-out-right) forwards;
+}
 // .modal-fadeout {
 //   animation: var(--animation-fade-out) backwards;
 // }
