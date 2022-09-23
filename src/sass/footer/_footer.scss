@@ -1,0 +1,93 @@
+.footer {
+    background-color: black;
+    padding-block: 2rem;
+
+    @media screen and (min-width:1024px) {
+        .icons-margin {
+            margin-inline: 1em;
+        }
+    }
+
+    @media screen and (max-width:1023px) {
+
+        h5 {
+            padding-top: 1em;
+        }
+
+        .flex {
+            display: block !important;
+        }
+
+        .footer-icon {
+            margin: 0 auto !important;
+        }
+
+        .footer-icons {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr);
+            padding-top: 1.5rem;
+        }
+
+        .icons-margin {
+            margin: 0 auto;
+        }
+
+        .footer-columns {
+            display: block !important;
+            text-align: center;
+        }
+
+        .contact-flex {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .contact-flex {
+        display: flex;
+    }
+
+    .footer-icons {
+        margin-left: auto;
+    }
+
+    .footer-icon {
+        display: flex;
+        justify-content: flex-end;
+        margin-inline: var(--size-4);
+    }
+
+    .footer-columns {
+        margin-block: 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--size-5);
+    }
+
+    .footer-column {
+        color: var(--gray-0);
+    }
+
+    h5 {
+        font-weight: var(--font-weight-8);
+        padding-bottom: var(--size-2);
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    p {
+        margin-bottom: var(--size-1);
+    }
+
+    a:hover {
+        color: white;
+    }
+
+    .svg-filter {
+        filter: invert(100%) sepia(98%) saturate(9%) hue-rotate(153deg) brightness(102%) contrast(102%);
+        margin-right: var(--size-2);
+    }
+}

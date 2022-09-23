@@ -4,63 +4,401 @@ body {
   --gutter: var(--size-4);
   --brand: hsl(217deg 82% 15%);
   --brand-hover: hsl(217deg 82% 45%);
+
+  .padding-block {
+    padding-block: var(--size-7);
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  h1 {
+    color: var(--gray-9)
+  }
+
+  h3 {
+    color: var(--gray-9)
+  }
+
+  .header-sticky {
+    position: sticky !important;
+    top: 0 !important;
+    background-color: var(--gray-0);
+  }
 }
+
 .header {
-  &__upper {
-    background-color: var(--gray-1);
-    padding-block: var(--size-2);
-    font-size: var(--font-size-0);
-    label {
-      margin-right: var(--size-2);
+
+
+  @media screen and (min-width:1024px) {
+    &__upper {
+      display: block !important;
+      background-color: var(--gray-1);
+      padding-block: var(--size-2);
+      font-size: var(--font-size-0);
+
+      label {
+        margin-right: var(--size-2);
+      }
+
+      select {
+        background: var(--gray-0);
+        border-radius: 0;
+        border-color: var(--gray-3);
+        border-width: 1px;
+      }
     }
-    select {
-      background: var(--gray-0);
-      border-radius: 0;
-      border-color: var(--gray-3);
-      border-width: 1px;
+
+    &__lower {
+      display: block !important;
+      background-color: var(--brand);
+      padding-block: var(--size-2);
+
+      a {
+        color: var(--gray-0);
+
+        &:hover {
+          color: var(--brand-hover);
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        display: grid;
+        align-items: center;
+        grid-auto-flow: column;
+        width: max-content;
+        gap: var(--gutter);
+        padding: 0;
+        margin: 0;
+      }
     }
   }
+
+  &__upper {
+    display: none;
+  }
+
   &__middle {
     padding-block: var(--gutter);
+
+    .mobile-menu {
+      display: none;
+    }
+
+    @media screen and (min-width:1024px) {
+      .btn {
+        display: none;
+      }
+    }
+
+    .display-none {
+      display: none !important;
+    }
+
+    @media screen and (max-width:1023px) {
+      .logo {
+        grid-area: 1/1/2/2;
+      }
+
+      .sandvish-svg {
+        width: 1.9em;
+        height: 1.9em;
+      }
+
+      .btn {
+        padding: 0;
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      .content {
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      nav {
+        grid-area: 1/2/2/3;
+        display: flex !important;
+        margin-left: auto;
+
+        .pc-only {
+          display: none;
+        }
+      }
+
+      .search {
+        grid-area: 2/1/3/3;
+
+        input {
+          width: 100%;
+        }
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+    }
+
     .content {
       display: grid;
       align-items: center;
       grid-template-columns: auto 1fr auto;
       gap: var(--gutter);
     }
+
     nav {
       display: grid;
       align-items: center;
       grid-auto-flow: column;
       gap: var(--gutter);
     }
+
     .search {
       display: flex;
       align-items: center;
       justify-content: flex-end;
+
       input {
         background-color: var(--gray-1);
       }
     }
   }
+
+
   &__lower {
-    background-color: var(--brand);
-    padding-block: var(--size-2);
-    a {
-      color: var(--gray-0);
-      &:hover {
-        color: var(--brand-hover);
-      }
-    }
-    ul {
-      list-style-type: none;
-      display: grid;
-      align-items: center;
-      grid-auto-flow: column;
-      width: max-content;
-      gap: var(--gutter);
-      padding: 0;
-      margin: 0;
-    }
+    display: none;
   }
+}
+
+.menu-items {
+  text-decoration: none;
+  font-weight: var(--font-weight-6);
+}
+
+// Modal
+.modal-window {
+  text-align: center;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: var(--gray-0);
+}
+
+.close-modal {
+  margin-right: 2em;
+  margin-top: 1em;
+  color: black;
+  float: right;
+}
+
+.close-svg {
+  margin: 0 auto;
+  margin-right: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.modal-elements {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 7em;
+}
+
+.modal-el {
+  color: var(--gray-9) !important;
+  padding-block: 0.5em;
+  text-decoration: none;
+  font-size: var(--font-size-4);
+}
+
+@media screen and (min-width:1024px) {
+  #cart-modal {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width:1023px) {
+  #cart-modal {
+    width: 70%;
+  }
+}
+
+#cart-modal {
+  display: none;
+  position: absolute;
+  background: var(--gray-0);
+  height: 100vh;
+  right: 0;
+  top: 0;
+}
+
+.cart-button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.cart-svg {
+  width: 26px;
+  height: 23px;
+}
+
+.cart-p {
+  margin-top: 7em;
+  text-align: center;
+  font-weight: var(--font-weight-8);
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slider-nav {
+  box-shadow: none;
+}
+
+.slider-padding-top {
+  padding-top: 2em;
+}
+
+.slider2-padding-top {
+  padding-top: 4em;
+}
+
+// LOGIN Modal
+
+.account-button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.account-svg {
+  width: 26px;
+  height: 23px;
+}
+
+@media screen and (min-width:1024px) {
+  .login {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width:1023px) {
+  .login {
+    width: 90%;
+  }
+
+  .account-modal-footer {
+    display: block !important;
+    text-align: center;
+  }
+
+  .login-submit {
+    float: none !important;
+  }
+}
+
+.login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3em 2em;
+  background: var(--gray-0);
+  display: none;
+
+}
+
+.login-modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-title {
+  font-weight: var(--font-weight-6);
+  margin-right: 0 !important;
+}
+
+.login-svg {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.close-login {
+  float: right;
+  top: 0;
+}
+
+.create-acc {
+  font-size: 1rem;
+  background-color: var(--blue-1);
+  padding-block: 1em;
+  margin-inline: 0;
+  padding-left: 1em;
+}
+
+.credentials {
+  display: block;
+  margin-block: 1em;
+  text-align: center;
+  width: 100%;
+}
+
+.credentials-input {
+  width: 100% !important;
+  margin-inline: 0 !important;
+  background-color: var(--gray-0);
+  border: 1px solid var(--gray-9);
+  border-radius: 3px;
+  width: 90%;
+  margin-block: 0.5em;
+}
+
+.login-submit {
+  float: right;
+}
+
+.login-submit-button {
+  background: var(--brand-hover);
+  color: var(--gray-0);
+}
+
+.account-modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.account-modal-footer-p {
+  font-size: 1em;
+  padding-top: 0.5em;
+}
+
+.account-anchor {
+  // text-decoration: none;
+  color: var(--gray-9) !important;
 }
