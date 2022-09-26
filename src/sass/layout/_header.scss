@@ -81,6 +81,22 @@ body {
   &__middle {
     padding-block: var(--gutter);
 
+    .pc-only {
+      --link-visited: var(--brand);
+    }
+
+    .pc-only:hover {
+      color: var(--brand-hover);
+    }
+
+    .second-header-btns {
+      color: var(--brand);
+    }
+
+    .second-header-btns:hover {
+      color: var(--brand-hover);
+    }
+
     .mobile-menu {
       display: none;
     }
@@ -422,10 +438,12 @@ body {
   // animation: var(--animation-fade-in) forwards;
   animation: var(--animation-slide-in-left) forwards;
 }
+
 .modal-slideout {
   // animation: var(--animation-fade-in) forwards;
   animation: var(--animation-slide-out-right) forwards;
 }
+
 // .modal-fadeout {
 //   animation: var(--animation-fade-out) backwards;
 // }
