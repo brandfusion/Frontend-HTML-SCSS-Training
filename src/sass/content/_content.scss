@@ -1,5 +1,5 @@
 @media (prefers-color-scheme: dark) {
-  :where(html) {
+  html {
     //   --link:var(--indigo-3);
     //   --link-visited:var(--grape-3);
     //   --text-1:var(--gray-1);
@@ -9,14 +9,14 @@
     //   --surface-3:var(--gray-7);
     //   --surface-4:var(--gray-6);
     //   color-scheme: dark;
-    --link: var(--indigo-7) !important;
-    --link-visited: var(--grape-7) !important;
-    --text-1: var(--gray-9) !important;
-    --text-2: var(--gray-7) !important;
-    --surface-1: var(--gray-0) !important;
-    --surface-2: var(--gray-2) !important;
-    --surface-3: var(--gray-3) !important;
-    --surface-4: var(--gray-4) !important;
+    --link: var(--indigo-7);
+    --link-visited: var(--grape-7);
+    --text-1: var(--gray-9);
+    --text-2: var(--gray-7);
+    --surface-1: var(--gray-0);
+    --surface-2: var(--gray-2);
+    --surface-3: var(--gray-3);
+    --surface-4: var(--gray-4);
     color-scheme: light;
   }
 }
@@ -26,10 +26,12 @@ button {
 }
 
 .section {
-  @media screen and (max-width: 1023px) {}
+  @media screen and (max-width: 1023px) {
+  }
 
   &__1 {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     img {
       --ratio-ultrawide: 18/5;
@@ -61,6 +63,8 @@ button {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      max-width: calc(1440px / 2);
+      padding-right: var(--size-2);
     }
 
     // div {
@@ -74,6 +78,7 @@ button {
     button {
       background-color: var(--brand-hover);
       color: var(--gray-0);
+      margin-top: var(--size-2);
     }
   }
 
