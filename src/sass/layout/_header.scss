@@ -2,7 +2,7 @@ body {
   // --body-bg: red;
   // background: var(--body-bg);
   --gutter: var(--size-4);
-  --brand: hsl(217deg 82% 15%);
+  --brand: hsl(217, 82%, 15%);
   --brand-hover: hsl(217deg 82% 45%);
 
   .padding-block {
@@ -80,6 +80,17 @@ body {
 
   &__middle {
     padding-block: var(--gutter);
+
+    .icon {
+      color: var(--brand);
+      margin-left: -2em;
+      margin-right: 1em;
+    }
+
+    .icon:hover {
+      color: var(--brand-hover);
+    }
+
 
     .pc-only {
       --link-visited: var(--brand);
@@ -176,6 +187,7 @@ body {
 
       input {
         background-color: var(--gray-1);
+        padding-right: 7em;
       }
     }
   }
@@ -260,6 +272,7 @@ body {
   overflow: auto;
   // animation: all 0.5s ease-in-out;
   //transform: translateX(100%);
+  z-index: 5;
 }
 
 .cart-button {
@@ -280,7 +293,7 @@ body {
   font-weight: var(--font-weight-8);
 }
 
-.overlay {
+.overlay-cart {
   position: fixed;
   left: 0;
   top: 0;
@@ -290,6 +303,25 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+.overlay-effect {
+  display: flex !important;
+  opacity: 0;
+}
+
+.overlay-acc {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3;
 }
 
 .slider-nav {
@@ -340,7 +372,8 @@ body {
 }
 
 .login {
-  position: absolute;
+  position: fixed;
+  z-index: 5;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -444,6 +477,6 @@ body {
   animation: var(--animation-slide-out-right) forwards;
 }
 
-// .modal-fadeout {
-//   animation: var(--animation-fade-out) backwards;
-// }
+.modal-fadeout {
+  animation: var(--animation-fade-out) forwards;
+}
