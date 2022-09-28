@@ -349,17 +349,20 @@
 
 
   <main>
-    <section class="section__1 d-none" id="sectionOne">
-      <img src="resources/images/hero.png" alt="Hero banner" class="img-responsive">
 
-      <div class="hero-section container">
-        <h1>Donec ultrices est iaculis egestas </h1>
-        <p>Fusce mattis, odio eget efficitur lacinia, tellus odio ornare metus, id aliquam quam nulla id tortor.</p>
-        <button type="button">Aenean vitae</button>
+    <section class="section__1 grid d-block d-lg-grid" id="sectionOne">
+      <img src="resources/images/hero.png" alt="Hero banner" class="img-responsive img-fluid g-col-12 g-start-1"
+        style="grid-row: 1">
+
+      <div class="hero-section container g-col-lg-4 g-start-lg-7  align-self-center flex-column d-block"
+        style="grid-row: 1">
+        <h1 class="fw-bolder mb-1 lh-1">Donec ultrices est iaculis egestas </h1>
+        <p class="mb-1">Fusce mattis, odio eget efficitur lacinia, tellus odio ornare metus, id aliquam quam nulla id
+          tortor.</p>
+        <button type="button" class="btn btn-primary d-block">Aenean
+          vitae</button>
       </div>
-
     </section>
-
 
     <section class="section__2 container padding-block" id="sectionTwo">
 
@@ -418,9 +421,9 @@
       <img src="resources/images/shore-1.png" alt="" class="img-responsive img-fluid pb-3">
 
       <div class="container mb-xl-5 mb-3">
-        <div class="title container col-xl-4 offset-xl-4 text-center">
+        <div class="title container col-xl-4 offset-xl-4 text-start text-xl-center px-4 px-xl-0">
           <div>
-            <h1 class="margin-auto fw-bold">Morbi porttitor </h1>
+            <h1 class="margin-auto fw-bold ">Morbi porttitor </h1>
             <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra lectus vel
               lorem
               vehicula dapibus.
@@ -430,19 +433,19 @@
         </div>
 
         <div class="container items grid">
-          <div class="item bg-light g-col-12 g-col-xl-4 py-4 px-3 mx-2 my-2 text-center text-xl-start">
+          <div class="item bg-light g-col-12 g-col-xl-4 py-4 px-3 mx-2 my-2 text-start text-xl-center text-xl-start">
             <h3 class="fw-bold">Maecenas</h3>
             <p>Nunc porta iaculis elementum. Duis vel orci quis mauris eleifend varius. Nullam vel neque id ante
               volutpat
               iaculis. Etiam consequat urna ut urna tristique, a ornare erat condimentum.</p>
           </div>
-          <div class="item bg-light g-col-12 g-col-xl-4 py-4 px-3 mx-2 my-2 text-center text-xl-start">
+          <div class="item bg-light g-col-12 g-col-xl-4 py-4 px-3 mx-2 my-2 text-start text-xl-center text-xl-start">
             <h3 class="fw-bold">Aliquam</h3>
             <p>Maecenas a nibh et eros ultrices molestie. Proin aliquet dui quis venenatis pulvinar. Sed ultricies nunc
               quis nisl pharetra, non iaculis nibh mollis. Donec mauris sapien, sollicitudin ac luctus non, semper in
               orci. Donec felis lacus, maximus eu maximus sed, pharetra sed purus.</p>
           </div>
-          <div class="item bg-light g-col-12 g-col-xl-4 py-4 px-3 mx-2 mt-2 text-center text-xl-start">
+          <div class="item bg-light g-col-12 g-col-xl-4 py-4 px-3 mx-2 mt-2 text-start text-xl-center text-xl-start">
             <h3 class="fw-bold">Suspendisse</h3>
             <p>Vestibulum vulputate tortor lectus, vehicula mattis nisi ullamcorper non. Vivamus tincidunt, sem sed
               hendrerit cursus, mi ex pulvinar arcu, a molestie ligula diam ac risus. Quisque vulputate neque felis, ac
@@ -456,10 +459,10 @@
       <img src="resources/images/shore-2.png" alt="" class="image img-responsive img-fluid">
 
       <div class="container my-xl-5 my-4">
-        <h2 class="fw-bold text-center">Aliquam eget</h2>
+        <h2 class="fw-bold text-center pb-2">Aliquam eget</h2>
 
         <div class="container items grid">
-          <div class="item g-col-xl-6 g-col-12 text-center text-xl-start bg-light py-5 px-4">Lorem ipsum dolor sit amet,
+          <div class="item g-col-xl-6 g-col-12 text-start bg-light py-5 px-4">Lorem ipsum dolor sit amet,
             consectetur
             adipiscing
             elit. Etiam
@@ -467,7 +470,7 @@
             commodo
             mollis. Nullam tempus vestibulum hendrerit. Ut iaculis lacus vel orci viverra, sed suscipit turpis luctus.
           </div>
-          <div class="item g-col-xl-6 g-col-12 text-center text-xl-start bg-light py-5 px-4">Lorem ipsum dolor sit amet,
+          <div class="item g-col-xl-6 g-col-12 text-start bg-light py-5 px-4">Lorem ipsum dolor sit amet,
             consectetur
             adipiscing
             elit. Etiam
@@ -475,7 +478,7 @@
             commodo
             mollis. Nullam tempus vestibulum hendrerit. Ut iaculis lacus vel orci viverra, sed suscipit turpis luctus.
           </div>
-          <div class="item g-col-xl-6 g-col-12 text-center text-xl-start bg-light py-5 px-4">Lorem ipsum dolor sit amet,
+          <div class="item g-col-xl-6 g-col-12 text-start bg-light py-5 px-4">Lorem ipsum dolor sit amet,
             consectetur
             adipiscing
             elit. Etiam
@@ -483,7 +486,7 @@
             commodo
             mollis. Nullam tempus vestibulum hendrerit. Ut iaculis lacus vel orci viverra, sed suscipit turpis luctus.
           </div>
-          <div class="item g-col-xl-6 g-col-12 text-center text-xl-start bg-light py-5 px-4">Lorem ipsum dolor sit amet,
+          <div class="item g-col-xl-6 g-col-12 text-start bg-light py-5 px-4">Lorem ipsum dolor sit amet,
             consectetur
             adipiscing
             elit. Etiam
