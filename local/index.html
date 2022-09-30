@@ -14,8 +14,7 @@
     defer></script>
   <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css" rel="stylesheet"
     crossorigin="anonymous">
-
-
+  <script src="app.bundle.js" defer></script>
 </head>
 
 <body>
@@ -368,67 +367,59 @@
       </div>
 
       <div class="items container row mx-auto row-cols-xl-3 row-cols-md-2 text-center pb-3">
-        <div class="col-xl-3 col-md-6">
-          <input type="checkbox" data-role="compare" data-product-id="PROD1" data-product-name="Product1" />
+        <div class="col-xl-3 col-md-6">          
           <img src="resources/images/category-1.png" alt="" width="306px" height="210px"
             class="mobile-size img-responsive img-fluid">
-          <input type="checkbox" class="items__checkbox" id="item-checkbox-1" onchange="changeState(this)">
+          <input type="checkbox" class="items__checkbox" data-role="compare-trigger" id="item-checkbox-1">
           <h4 class="text-center fw-bolder pt-2">Nullam</h4>
         </div>
 
-        <div class="col-xl-3 col-md-6">
-          <input type="checkbox" data-role="compare" data-product-id="PROD2" data-product-name="Product2" />
+        <div class="col-xl-3 col-md-6">          
           <img src="resources/images/category-2.png" alt="" width="306px" height="210px"
             class="mobile-size img-responsive img-fluid">
-          <input type="checkbox" class="items__checkbox" id="item-checkbox-2" onchange="changeState(this)">
+          <input type="checkbox" class="items__checkbox" data-role="compare-trigger" id="item-checkbox-2">
           <h4 class="text-center fw-bolder pt-2">Duis</h4>
         </div>
 
-        <div class="col-xl-3 col-md-6">
-          <input type="checkbox" data-role="compare" data-product-id="PROD3" data-product-name="Product3" />
+        <div class="col-xl-3 col-md-6">          
           <img src="resources/images/category-3.png" alt="" width="306px" height="210px"
             class="mobile-size img-responsive img-fluid">
-          <input type="checkbox" class="items__checkbox" id="item-checkbox-3" onchange="changeState(this)">
+          <input type="checkbox" class="items__checkbox" data-role="compare-trigger" id="item-checkbox-3">
           <h4 class="text-center fw-bolder pt-2">Aliquam</h4>
         </div>
 
-        <div class="col-xl-3 col-md-6">
-          <input type="checkbox" data-role="compare" data-product-id="PROD4" data-product-name="Product4" />
+        <div class="col-xl-3 col-md-6">          
           <img src="resources/images/category-4.png" alt="" width="306px" height="210px"
             class="mobile-size img-responsive img-fluid">
-          <input type="checkbox" class="items__checkbox" id="item-checkbox-4" onchange="changeState(this)">
+          <input type="checkbox" class="items__checkbox" data-role="compare-trigger" id="item-checkbox-4">
           <h4 class="text-center fw-bolder pt-2">Praesent</h4>
         </div>
 
-        <div class="col-xl-3 col-md-6">
-          <input type="checkbox" data-role="compare" data-product-id="PROD5" data-product-name="Product5" />
+        <div class="col-xl-3 col-md-6">          
           <img src="resources/images/category-5.png" alt="" width="306px" height="210px"
             class="mobile-size img-responsive img-fluid">
-          <input type="checkbox" class="items__checkbox" id="item-checkbox-5" onchange="changeState(this)">
+          <input type="checkbox" class="items__checkbox" data-role="compare-trigger" id="item-checkbox-5">
           <h4 class="text-center fw-bolder pt-2">Quisque</h4>
         </div>
 
-        <div class="col-xl-3 col-md-6">
-          <input type="checkbox" data-role="compare" data-product-id="PROD6" data-product-name="Product6" />
+        <div class="col-xl-3 col-md-6">          
           <img src="resources/images/category-6.png" alt="" width="306px" height="210px"
             class="mobile-size img-responsive img-fluid">
-          <input type="checkbox" class="items__checkbox" id="item-checkbox-6" onchange="changeState(this)">
+          <input type="checkbox" class="items__checkbox" data-role="compare-trigger" id="item-checkbox-6">
           <h4 class="text-center fw-bolder pt-2">Etiam</h4>
         </div>
 
-        <div class="col-xl-3 col-md-6">
-          <input type="checkbox" data-role="compare" data-product-id="PROD7" data-product-name="Product7" />
+        <div class="col-xl-3 col-md-6">          
           <img src="resources/images/category-7.png" alt="" width="306px" height="210px"
             class="mobile-size img-responsive img-fluid">
-          <input type="checkbox" class="items__checkbox" id="item-checkbox-7" onchange="changeState(this)">
+          <input type="checkbox" class="items__checkbox" data-role="compare-trigger" id="item-checkbox-7">
           <h4 class="text-center fw-bolder pt-2">Cras</h4>
         </div>
 
-        <div class="col-xl-3 col-md-6">
-          <input type="checkbox" data-role="compare" data-product-id="PROD8" data-product-name="Product8" />
+        <div class="col-xl-3 col-md-6">          
           <img src="resources/images/category-8.png" alt="" width="306px" height="210px"
             class="mobile-size img-responsive img-fluid">
-          <input type="checkbox" class="items__checkbox" id="item-checkbox-8" onchange="changeState(this)">
+          <input type="checkbox" class="items__checkbox" data-role="compare-trigger" id="item-checkbox-8">
           <h4 class="text-center fw-bolder pt-2">Vivamus</h4>
         </div>
       </div>
@@ -769,7 +760,7 @@
   </footer>
 
 
-  <script src="index.js"></script>
+
 </body>
 
 </html>
