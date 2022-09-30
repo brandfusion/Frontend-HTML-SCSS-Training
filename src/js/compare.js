@@ -1,49 +1,56 @@
-let numberOfElements = 0;
-const offcanvasBody = document.querySelector(`.offcanvas-body`);
+const numberOfElements = 0;
 
+const removeFromCompare = e =>{
+  const {id} = e.currentTarget;
+  const target = document.querySelector(`[data-ref="${id}"]`);
+  target.remove();
+};
 
-function removeFromCompare(el) {
-  let output = document.getElementById(el.id + `-compare`);
-
-  offcanvasBody.removeChild(output);
-
-  if (numberOfElements === 0) {
-    document.querySelector(`.offcanvas-start`).classList.remove(`show`);
-  }
-}
-
-function insertInCompare(el) {
+const insertInCompare = (e) => {
+  const id = e.currentTarget.getAttribute("id");
+  const img = e.currentTarget.previousElementSibling.src;
+  const title = e.currentTarget.nextElementSibling.textContent;
   const output = `
-    <div id="${el.id}-compare">
+    <div data-ref="${id}" class="compare-item">
       <div class="d-flex">
-        <img src= "${el.previousElementSibling.src}">
-        <button type="button" class="btn-close" onClick=""> </button>
+        <img src= "${img}">
+        <button type="button" class="btn-close"> </button>
       </div >
-    <h4>${el.nextElementSibling.textContent}</h4>
+    <h4>${title}</h4>
     </div >
     `;
-  offcanvasBody.insertAdjacentHTML("beforeend", output);
+    document.querySelector(`.offcanvas-body`).insertAdjacentHTML("beforeend", output);
+};
 
-  document.querySelector(`.offcanvas-start`).classList.add(`show`);
-}
-
-function changeState(e) {
-  const el = e.currentTarget;
-  if (el.checked === true && numberOfElements < 3) {
-    numberOfElements++;
-    insertInCompare(el);
-  }
-  else if (el.checked === false) {
-    numberOfElements--;
-    removeFromCompare(el);
-  } else {
-    numberOfElements = 3;
-    el.checked = false;
-    alert(`deja 3 elemente`);
-  }
-}
-
+const checkItemAvailability = ({node}) => {
+  if( node.children.length === 3) {
+    return {availability: false, message: "Nu poate fi adaugat, exista deja 3 elemente in lista"};
+  } 
+    return {availability: true, message: null};  
+};
 
 document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el => el.addEventListener("click", e => {
-  changeState(e);
+  const canInsert = checkItemAvailability({node: document.querySelector(`.offcanvas-body`)});
+  const {availability,message} = canInsert;
+
+  if(availability) {
+     if(e.currentTarget.checked) {
+      insertInCompare(e);            
+     } else {
+      removeFromCompare(e);  
+     }       
+  } else if(!e.currentTarget.checked) {
+    removeFromCompare(e);  
+  } else {
+    e.preventDefault();
+    alert(message);
+  }
+  
+
+  // UX 
+  if(document.querySelector(`.offcanvas-body`).children.length>0) {
+    document.querySelector(`.offcanvas-start`).classList.add(`show`);
+  } else {
+    document.querySelector(`.offcanvas-start`).classList.remove(`show`);
+  }
 }));
