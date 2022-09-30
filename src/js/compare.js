@@ -1,60 +1,49 @@
 let numberOfElements = 0;
 const offcanvasBody = document.querySelector(`.offcanvas-body`);
 
-function removeFromCompare(el) {
-  const img = document.getElementById(`${el.id  }--image`);
-  const title = document.getElementById(`${el.id  }--title`);
 
-  offcanvasBody.removeChild(img);
-  offcanvasBody.removeChild(title);
+function removeFromCompare(el) {
+  let output = document.getElementById(el.id + `-compare`);
+
+  offcanvasBody.removeChild(output);
 
   if (numberOfElements === 0) {
-      document.querySelector(`.offcanvas-start`).classList.remove(`show`);
+    document.querySelector(`.offcanvas-start`).classList.remove(`show`);
   }
 }
 
 function insertInCompare(el) {
-
-
-    const output = `
+  const output = `
     <div id="${el.id}-compare">
-     <h1>${el.id}</h1>
-    </div>
+      <div class="d-flex">
+        <img src= "${el.previousElementSibling.src}">
+        <button type="button" class="btn-close" onClick=""> </button>
+      </div >
+    <h4>${el.nextElementSibling.textContent}</h4>
+    </div >
     `;
-    const img = document.createElement(`img`);
-    img.src = el.previousElementSibling.src;
-    img.id = `${el.id  }--image`;
+  offcanvasBody.insertAdjacentHTML("beforeend", output);
 
-    const title = document.createElement(`h4`);
-    title.innerText = el.nextElementSibling.textContent;
-    title.id = `${el.id  }--title`;
-
-    offcanvasBody.appendChild(img);
-    offcanvasBody.appendChild(title);
-    offcanvasBody.insertAdjacentHTML("afterbegin",output);
-
-    document.querySelector(`.offcanvas-start`).classList.add(`show`);
+  document.querySelector(`.offcanvas-start`).classList.add(`show`);
 }
 
 function changeState(e) {
   const el = e.currentTarget;
-    if (el.checked === true && numberOfElements < 3) {
-        numberOfElements++;
-        insertInCompare(el);
-    }
-    else if (el.checked === false) {
-        numberOfElements--;
-        removeFromCompare(el);
-    } else {
-        numberOfElements = 3;
-        el.checked = false;
-        alert(`deja 3 elemente`);
-    }
+  if (el.checked === true && numberOfElements < 3) {
+    numberOfElements++;
+    insertInCompare(el);
+  }
+  else if (el.checked === false) {
+    numberOfElements--;
+    removeFromCompare(el);
+  } else {
+    numberOfElements = 3;
+    el.checked = false;
+    alert(`deja 3 elemente`);
+  }
 }
 
 
-
-
-document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el=>el.addEventListener("click",e=>{
+document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el => el.addEventListener("click", e => {
   changeState(e);
 }));
