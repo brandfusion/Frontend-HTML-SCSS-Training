@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/brandfusion/Wizaris-Solution#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.1",
     "open-props": "^1.4.14"
