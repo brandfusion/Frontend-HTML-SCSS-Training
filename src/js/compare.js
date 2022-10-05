@@ -1,3 +1,5 @@
+const { Alert } = require("bootstrap");
+
 const numberOfElements = 0;
 
 const removeFromCompare = e => {
@@ -70,45 +72,56 @@ const checkItemAvailability = ({ node }) => {
 
 let compareCollection = [];
 
-console.log({compareCollection});
-
-const addItem = ({name,img,id,compareCollection}) => [...compareCollection,{name,img,id}];
+const addItem = ({ name, img, id, compareCollection }) => [...compareCollection, { name, img, id }];
 
 document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el => el.addEventListener("click", e => {
-  if(compareCollection.length === 3) {
+
+  if (compareCollection.length === 3 && e.currentTarget.checked) {
     e.preventDefault();
+    alert(`Deja 3 elemente in Compare`);
     return;
   }
   const name = e.currentTarget.closest(".col-md-6").querySelector("h4").innerHTML;
   const img = e.currentTarget.closest(".col-md-6").querySelector("img").src;
-  const {id} = e.currentTarget;
-  compareCollection = addItem({name,img,id,compareCollection});
+  const { id } = e.currentTarget;
+  if (e.currentTarget.checked) {
+    compareCollection = addItem({ name, img, id, compareCollection });
+  } else if (!e.currentTarget.checked) {
+    compareCollection = [...compareCollection].filter(({ id }) => id !== e.currentTarget.id);
+  }
 
-  RenderCompareCollection({collection:compareCollection});
+  console.log(compareCollection);
+  RenderCompareCollection({ collection: compareCollection });
   RegisterButtonEvents();
-  // console.log({compareCollection});
 }));
-const RegisterButtonEvents = () =>{
-  document.querySelectorAll("#offcanvasCompare .btn-close").forEach(n=>{
+
+
+const RegisterButtonEvents = () => {
+  document.querySelectorAll(".offcanvas-body .btn-close").forEach(n => {
     n.addEventListener("click", e => {
       const idSelected = e.currentTarget.closest("[data-ref]").dataset.ref;
-      compareCollection = [...compareCollection].filter(({id})=>id !== idSelected);
-      RenderCompareCollection({collection:compareCollection});
+      compareCollection = [...compareCollection].filter(({ id }) => id !== idSelected);
+
+      console.log(compareCollection);
+      RenderCompareCollection({ collection: compareCollection });
+      document.querySelector(`#${idSelected}`).checked = false;
       RegisterButtonEvents();
     });
   });
 };
-const RenderCompareCollection = ({collection}) => {  
+const RenderCompareCollection = ({ collection }) => {
 
-  if(collection.length ===0 || document.getElementById("offcanvasCompare")!==null) {
+  if (collection.length === 0) {
     document.getElementById("offcanvasCompare").remove();
     return;
-  }  
+  }
+
+
 
   const output = `  
   <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvasCompare"  aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" id="btn-close-compare"></button>
         </div>
         <div class="offcanvas-body">
             ${collection.map(({id,name,img})=>`
