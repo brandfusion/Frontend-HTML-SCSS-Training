@@ -28,6 +28,13 @@ document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el => el.ad
 
 // Buton de close pe fiecare element din Compare
 const RegisterButtonEvents = () => {
+
+  document.getElementById(`btn-close-compare`).addEventListener(`click`, () => {
+    RenderCompareCollection({ collection: [] });
+    document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el => el.checked = false);
+    compareCollection = [];
+  });
+
   document.querySelectorAll(".offcanvas-body .btn-close").forEach(n => {
     n.addEventListener("click", e => {
       const idSelected = e.currentTarget.closest("[data-ref]").dataset.ref;
@@ -48,9 +55,13 @@ const RenderCompareCollection = ({ collection }) => {
     document.getElementById("offcanvasCompare").classList.remove(`show`);
     return;
   }
+  // document.getElementById(`btn-close-compare`).addEventListener(`click`, () => {
+  //   document.getElementById("offcanvasCompare").classList.remove(`show`);
+  //   document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(e => e.currentTarget.checked == false);
+  // });
 
   // console.log(collection[collection.length - 1]);
-  let lastEl = [];
+  // let lastEl = [];
   // lastEl.push(collection[collection.length - 1]);
   // console.log(lastEl);
 
