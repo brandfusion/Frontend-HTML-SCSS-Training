@@ -30,9 +30,9 @@ document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el => el.ad
 const RegisterButtonEvents = () => {
 
   document.getElementById(`btn-close-compare`).addEventListener(`click`, () => {
-    RenderCompareCollection({ collection: [] });
-    document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el => el.checked = false);
     compareCollection = [];
+    RenderCompareCollection({ collection: compareCollection });
+    document.querySelectorAll("[data-role=\"compare-trigger\"]").forEach(el => el.checked = false);
   });
 
   document.querySelectorAll(".offcanvas-body .btn-close").forEach(n => {
